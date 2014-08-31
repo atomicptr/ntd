@@ -1,6 +1,6 @@
 # ntd - not std
 
-ntd (acronym: **n**ot s**td**) is a library which adds functionality to C++ which should be included in the standard lib by default (IMHO).
+ntd (acronym: "&#8203;**&#8203;n**&#8203;ot s&#8203;**&#8203;td&#8203;**&#8203;") is a library which adds functionality to C++ which should be included in the standard lib by default (IMHO).
 
 **Note:** This library is using some shiny new C++14 features, so you'll need a C++14 compatible compiler.
 
