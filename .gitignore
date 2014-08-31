@@ -1,3 +1,9 @@
+bin
+
+# premake stuff
+Makefile
+*.make
+
 # Created by http://www.gitignore.io
 
 ### OSX ###
