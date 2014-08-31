@@ -6,14 +6,12 @@ solution "ntd"
 
     buildoptions "-std=c++1y"
 
-    targetdir "bin"
-
     project "ntd"
         kind "SharedLib"
 
         files "ntd/source/**.cpp"
 
-    project "tests"
+    project "unit_tests"
         kind "ConsoleApp"
         links {"ntd", "mavis"}
 
