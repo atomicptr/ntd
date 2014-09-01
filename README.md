@@ -11,6 +11,7 @@ ntd (acronym: "&#8203;**&#8203;n**&#8203;ot s&#8203;**&#8203;td&#8203;**&#8203;"
 ## What stuff does ntd contain?
 
 * curry, ``ntd/curry.hpp``
+* string tools, ``ntd/string.hpp``
 
 ## License
 
