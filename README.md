@@ -4,6 +4,12 @@ ntd (acronym: "&#8203;**&#8203;n**&#8203;ot s&#8203;**&#8203;td&#8203;**&#8203;"
 
 **Note:** This library is using some shiny new C++14 features, so you'll need a C++14 compatible compiler.
 
+## Install
+
+### homebrew (OSX)
+
+    brew install https://raw.githubusercontent.com/kasoki/ntd/master/misc/ntd.rb
+
 ## Dependencies
 
 **None**, at least if you're only using the library. If you plan to compile the unit tests you'll need the unit test framework: [mavis](http://mavis.kasoki.de).
