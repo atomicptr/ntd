@@ -2,8 +2,8 @@ require "formula"
 
 class Ntd < Formula
   homepage "http://ntd.kasoki.de"
-  url "https://github.com/kasoki/ntd/archive/v0.1.1.tar.gz"
-  sha1 "d0a73e8835d8164779118e81978fc9a386ad3f71"
+  url "https://github.com/kasoki/ntd/archive/v0.1.2.tar.gz"
+  sha1 "afa93929f38bceadc49408d1ca92dd17def2dd00"
 
   depends_on "premake" => :build
 
