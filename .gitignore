@@ -1,5 +1,6 @@
 unit_tests
 obj
+docs
 
 # premake stuff
 Makefile
