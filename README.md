@@ -18,6 +18,7 @@ ntd (acronym: "&#8203;**&#8203;n**&#8203;ot s&#8203;**&#8203;td&#8203;**&#8203;"
 
 * curry, ``ntd/curry.hpp``
 * string tools, ``ntd/string.hpp``
+* memory, ``ntd/memory.hpp``
 
 ## License
 
