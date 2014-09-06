@@ -1,6 +1,8 @@
 #ifndef __NTD_MEMORY_HPP__
 #define __NTD_MEMORY_HPP__
 
+#include <memory>
+
 namespace ntd {
 
     /**
