@@ -16,7 +16,7 @@ ntd (acronym: "&#8203;**&#8203;n**&#8203;ot s&#8203;**&#8203;td&#8203;**&#8203;"
 
 ## What stuff does ntd contain?
 
-* curry, ``ntd/curry.hpp``
+* partial functions, ``ntd/partial_function.hpp``
 * string tools, ``ntd/string.hpp``
 * memory, ``ntd/memory.hpp``
 
