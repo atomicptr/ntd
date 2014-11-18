@@ -62,6 +62,18 @@ auto test_split_nothing() {
     return mavis_assert_equals("Hello, World!", strings[0]);
 }
 
+auto test_to_lower() {
+    auto string = std::string{"HELLO WORLD"};
+
+    return mavis_assert_equals("hello world", ntd::to_lower(string));
+}
+
+auto test_to_upper() {
+    auto string = std::string{"hello world"};
+
+    return mavis_assert_equals("HELLO WORLD", ntd::to_upper(string));
+}
+
 void run_string_tests() {
     auto string_test_unit = mavis::create_test_unit("string tests");
 
@@ -75,6 +87,9 @@ void run_string_tests() {
     string_test_unit.add_test(test_split_spaces);
     string_test_unit.add_test(test_split_breaks);
     string_test_unit.add_test(test_split_nothing);
+
+    string_test_unit.add_test(test_to_lower);
+    string_test_unit.add_test(test_to_upper);
 
     string_test_unit.run_tests();
 }

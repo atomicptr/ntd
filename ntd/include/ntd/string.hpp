@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 namespace ntd {
 
@@ -39,6 +40,9 @@ namespace ntd {
         @return Returns a std::vector<std::string> which contains several substrings based on your delimeter.
     */
     std::vector<std::string> split(const std::string, const char);
+
+    std::string to_lower(const std::string);
+    std::string to_upper(const std::string);
 }
 
 #endif

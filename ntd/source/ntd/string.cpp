@@ -30,3 +30,19 @@ std::vector<std::string> ntd::split(const std::string string, const char delimet
 
     return strings;
 }
+
+std::string ntd::to_lower(const std::string str) {
+    auto nstr = std::string{str};
+
+    std::transform(nstr.begin(), nstr.end(), nstr.begin(), ::tolower);
+
+    return nstr;
+}
+
+std::string ntd::to_upper(const std::string str) {
+    auto nstr = std::string{str};
+
+    std::transform(nstr.begin(), nstr.end(), nstr.begin(), ::toupper);
+
+    return nstr;
+}
