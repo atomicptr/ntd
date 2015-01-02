@@ -8,7 +8,8 @@ ntd (acronym: "&#8203;**&#8203;n**&#8203;ot s&#8203;**&#8203;td&#8203;**&#8203;"
 
 ### homebrew (OSX)
 
-    brew install https://raw.githubusercontent.com/kasoki/ntd/master/misc/ntd.rb
+    brew tap kasoki/homebrew-tap
+    brew install ntd
 
 ## Dependencies
 
