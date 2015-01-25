@@ -1,0 +1,3 @@
+[submodule "tests/mavis"]
+	path = tests/mavis
+	url = git@github.com:kasoki/mavis.git

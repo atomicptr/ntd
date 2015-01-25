@@ -19,7 +19,7 @@ solution "ntd"
 
     project "unit_tests"
         kind "ConsoleApp"
-        links {"ntd", "mavis"}
+        links {"ntd"}
 
         files "tests/**.cpp"
 

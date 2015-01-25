@@ -1,97 +1,82 @@
 #ifndef __NTD_TESTS_STRING_TEST_HPP__
 #define __NTD_TESTS_STRING_TEST_HPP__
 
-#include <mavis/mavis.hpp>
+#include "../mavis/mavis.hpp"
+
 #include <ntd/string.hpp>
 
-auto test_replace_simple() {
-    auto str = ntd::replace("Java is awesome", "Java", "C++14");
-
-    return mavis_assert_equals("C++14 is awesome", str);
-}
-
-auto test_replace_letters() {
-    auto str = ntd::replace("AaAaAaAaAaAaAaAaAaAaAa", "A", "B");
-
-    return mavis_assert_equals("BaBaBaBaBaBaBaBaBaBaBa", str);
-}
-
-auto test_replace_with_space() {
-    auto str = ntd::replace("Luke, I'm your mother yes", "your mother yes", "your father! D:");
-
-    return mavis_assert_equals("Luke, I'm your father! D:", str);
-}
-
-auto test_replace_duplex() {
-    auto str = ntd::replace(ntd::replace("Hello\tWorld\tand\tUniverse", "\t", "\n"), "\n", "\t");
-
-    return mavis_assert_equals("Hello\tWorld\tand\tUniverse", str);
-}
-
-auto test_replace_nothing() {
-    auto str = ntd::replace("Bacon Melt", "Veggie", "Bacon");
-
-    return mavis_assert_equals("Bacon Melt", str);
-}
-
-auto test_replace_empty() {
-    auto str = ntd::replace("", "", "ntd");
-
-    return mavis_assert_equals("", str);
-}
-
-auto test_split_spaces() {
-    auto strings = ntd::split("Lorem ipsum dolor sit amet", ' ');
-
-    auto vec = std::vector<std::string>{"Lorem", "ipsum", "dolor", "sit", "amet"};
-
-    return mavis_assert_vector_equals(strings, vec);
-}
-
-auto test_split_breaks() {
-    auto strings = ntd::split("Lorem\nipsum\ndolor\nsit\namet", '\n');
-
-    auto vec = std::vector<std::string>{"Lorem", "ipsum", "dolor", "sit", "amet"};
-
-    return mavis_assert_vector_equals(strings, vec);
-}
-
-auto test_split_nothing() {
-    auto strings = ntd::split("Hello, World!", 'x');
-
-    return mavis_assert_equals("Hello, World!", strings[0]);
-}
-
-auto test_to_lower() {
-    auto string = std::string{"HELLO WORLD"};
-
-    return mavis_assert_equals("hello world", ntd::to_lower(string));
-}
-
-auto test_to_upper() {
-    auto string = std::string{"hello world"};
-
-    return mavis_assert_equals("HELLO WORLD", ntd::to_upper(string));
-}
-
 void run_string_tests() {
-    auto string_test_unit = mavis::create_test_unit("string tests");
+    mavis::describe("ntd/string.hpp", [](auto &s) {
+        s.it("can replace Java with C++14", [](auto &spec) {
+            auto str = ntd::replace("Java is awesome", "Java", "C++14");
 
-    string_test_unit.add_test(test_replace_simple);
-    string_test_unit.add_test(test_replace_letters);
-    string_test_unit.add_test(test_replace_with_space);
-    string_test_unit.add_test(test_replace_duplex);
-    string_test_unit.add_test(test_replace_nothing);
-    string_test_unit.add_test(test_replace_empty);
+            spec.expect_equals(std::string{"C++14 is awesome"}, str);
+        });
 
-    string_test_unit.add_test(test_split_spaces);
-    string_test_unit.add_test(test_split_breaks);
-    string_test_unit.add_test(test_split_nothing);
+        s.it("can replace letters", [](auto &spec) {
+            auto str = ntd::replace("AaAaAaAaAaAaAaAaAaAaAa", "A", "B");
 
-    string_test_unit.add_test(test_to_lower);
-    string_test_unit.add_test(test_to_upper);
+            spec.expect_equals(std::string{"BaBaBaBaBaBaBaBaBaBaBa"}, str);
+        });
 
-    string_test_unit.run_tests();
+        s.it("can replace with spaces", [](auto &spec) {
+            auto str = ntd::replace("Luke, I'm your mother yes", "your mother yes", "your father! D:");
+
+            spec.expect_equals(std::string{"Luke, I'm your father! D:"}, str);
+        });
+
+        s.it("can replace in both ways", [](auto &spec) {
+            auto str = ntd::replace(ntd::replace("Hello\tWorld\tand\tUniverse", "\t", "\n"), "\n", "\t");
+
+            spec.expect_equals(std::string{"Hello\tWorld\tand\tUniverse"}, str);
+        });
+
+        s.it("can replace nothing", [](auto &spec) {
+            auto str = ntd::replace("Bacon Melt", "Veggie", "Bacon");
+
+            spec.expect_equals(std::string{"Bacon Melt"}, str);
+        });
+
+        s.it("can replace empty string", [](auto &spec) {
+            auto str = ntd::replace("", "", "ntd");
+
+            spec.expect_equals(std::string{""}, str);
+        });
+
+        s.it("can split spaces", [](auto &spec) {
+            auto strings = ntd::split("Lorem ipsum dolor sit amet", ' ');
+
+            auto vec = std::vector<std::string>{"Lorem", "ipsum", "dolor", "sit", "amet"};
+
+            spec.expect_equals(strings.size(), vec.size());
+        });
+
+        s.it("can split line breaks", [](auto &spec) {
+            auto strings = ntd::split("Lorem\nipsum\ndolor\nsit\namet", '\n');
+
+            auto vec = std::vector<std::string>{"Lorem", "ipsum", "dolor", "sit", "amet"};
+
+            spec.expect_equals(strings.size(), vec.size());
+        });
+
+        s.it("can split nothing", [](auto &spec) {
+            auto strings = ntd::split("Hello, World!", 'x');
+
+            spec.expect_equals(std::string{"Hello, World!"}, strings[0]);
+        });
+
+        s.it("can lower string", [](auto &spec) {
+            auto string = std::string{"HELLO WORLD"};
+
+            spec.expect_equals(std::string{"hello world"}, ntd::to_lower(string));
+        });
+
+        s.it("can upper string", [](auto &spec) {
+            auto string = std::string{"hello world"};
+
+            spec.expect_equals(std::string{"HELLO WORLD"}, ntd::to_upper(string));
+        });
+    });
 }
 
 #endif
