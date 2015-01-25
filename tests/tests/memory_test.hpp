@@ -1,7 +1,7 @@
 #ifndef __NTD_MEMORY_TEST_HPP__
 #define __NTD_MEMORY_TEST_HPP__
 
-#include "../mavis/mavis.hpp"
+#include "../mavis.hpp"
 
 #include <ntd/memory.hpp>
 
