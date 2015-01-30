@@ -54,6 +54,31 @@ namespace ntd {
 
         return nstr;
     }
+
+    inline std::string ltrim(const std::string str) {
+        auto s = std::string{str};
+
+        s.erase(s.begin(), std::find_if(s.begin(), s.end(),
+            std::not1(std::ptr_fun<int, int>(std::isspace))));
+
+        return s;
+    }
+
+
+    inline std::string rtrim(const std::string str) {
+        auto s = std::string{str};
+
+        s.erase(std::find_if(s.rbegin(), s.rend(),
+            std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+
+        return s;
+    }
+
+    inline std::string trim(const std::string str) {
+        auto s = std::string{str};
+
+        return ltrim(rtrim(s));
+    }
 }
 
 #endif

@@ -76,6 +76,18 @@ void run_string_tests() {
 
             spec.expect_equals(std::string{"HELLO WORLD"}, ntd::to_upper(string));
         });
+
+        s.it("can trim from left", [](auto &spec) {
+            spec.expect_equals(std::string{"Hello, World!"}, ntd::ltrim("          Hello, World!"));
+        });
+
+        s.it("can trim from right", [](auto &spec) {
+            spec.expect_equals(std::string{"Hello, World!"}, ntd::rtrim("Hello, World!          "));
+        });
+
+        s.it("can trim", [](auto &spec) {
+            spec.expect_equals(std::string{"Hello, World!"}, ntd::trim("     Hello, World!     "));
+        });
     });
 }
 
