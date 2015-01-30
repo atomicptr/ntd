@@ -1,11 +1,11 @@
 #ifndef __NTD_MEMORY_TEST_HPP__
 #define __NTD_MEMORY_TEST_HPP__
 
+#include <string>
+
 #include "../mavis.hpp"
 
 #include <ntd/memory.hpp>
-
-#include <string>
 
 // cuz, if you don't know how to call something just call it widget
 struct widget_t {

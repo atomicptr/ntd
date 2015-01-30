@@ -1,8 +1,8 @@
-solution "ntd"
+solution "ntd-unit-tests"
     configurations {"debug"}
     language "C++"
 
-    includedirs "ntd/include"
+    includedirs "include"
 
     buildoptions "-std=c++1y"
 
@@ -12,14 +12,8 @@ solution "ntd"
     configuration "debug"
       flags {"Symbols"}
 
-    project "ntd"
-        kind "SharedLib"
-
-        files "ntd/source/**.cpp"
-
     project "unit_tests"
         kind "ConsoleApp"
-        links {"ntd"}
 
         files "tests/**.cpp"
 
