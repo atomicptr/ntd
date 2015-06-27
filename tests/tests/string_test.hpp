@@ -88,6 +88,10 @@ void run_string_tests() {
         s.it("can trim", [](auto &spec) {
             spec.expect_equals(std::string{"Hello, World!"}, ntd::trim("     Hello, World!     "));
         });
+
+        s.it("ends with .app", [](auto &spec) {
+            spec.expect_true(ntd::string_ends_with("BestAppEver.app", ".app"));
+        });
     });
 }
 

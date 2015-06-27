@@ -79,6 +79,14 @@ namespace ntd {
 
         return ltrim(rtrim(s));
     }
+
+    bool string_ends_with(std::string base, std::string end) {
+        if(base.length() >= end.length()) {
+            return (0 == base.compare(base.length() - end.length(), end.length(), end));
+        }
+
+        return false;
+    }
 }
 
 #endif
