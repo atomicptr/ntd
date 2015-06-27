@@ -6,9 +6,6 @@ solution "ntd-unit-tests"
 
     buildoptions "-std=c++1y"
 
-    -- remove ldflags to fix broken dead code elimination stuff
-    premake.gcc.platforms.ldflags = nil
-
     configuration "debug"
       flags {"Symbols"}
 
